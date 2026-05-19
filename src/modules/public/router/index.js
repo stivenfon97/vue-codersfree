@@ -1,9 +1,13 @@
+import aboutRoutes from '../submodules/about/routes';
+import blogRoutes from '../submodules/blog/routes';
+import contactRoutes from '../submodules/contact/routes';
+import homeRoutes from '../submodules/home/routes';
+
 const routes = [
-   {
-      path: '/',
-      name: 'home',
-      component: () => import('@/modules/public/views/HomeView.vue'),
-   }
+   ...homeRoutes,
+   ...aboutRoutes,
+   ...blogRoutes,
+   ...contactRoutes
 ];
 
 

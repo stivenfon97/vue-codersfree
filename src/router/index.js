@@ -9,14 +9,17 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      component: () => import('@/layouts/public/PublicLayout.vue'),
       children:  publicRoutes,
     },
     {
       path: '/auth',
+      component: () => import('@/layouts/auth/AuthLayout.vue'),
       children: authRoutes,
     },
     {
       path: '/admin',
+      component: () => import('@/layouts/admin/AdminLayout.vue'),
       children: adminRoutes,
     }
   ],

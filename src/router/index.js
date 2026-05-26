@@ -12,7 +12,7 @@ const router = createRouter({
       component: () => import('@/layouts/public/PublicLayout.vue'),
       children:  publicRoutes,
     },
-    {
+    { 
       path: '/auth',
       component: () => import('@/layouts/auth/AuthLayout.vue'),
       children: authRoutes,

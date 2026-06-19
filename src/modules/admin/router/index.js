@@ -1,5 +1,7 @@
-const routes = [
+import dashboardRoutes from '@/modules/admin/submodules/dashboard/router';
 
+const routes = [
+    ...dashboardRoutes,
 ];
 
 

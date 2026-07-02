@@ -1,7 +1,7 @@
-import aboutRoutes from '../submodules/about/routes';
-import blogRoutes from '../submodules/blog/routes';
-import contactRoutes from '../submodules/contact/routes';
-import homeRoutes from '../submodules/home/routes';
+import aboutRoutes from '../about/routes';
+import blogRoutes from '../blog/routes';
+import contactRoutes from '../contact/routes';
+import homeRoutes from '../home/routes';
 
 const routes = [
    ...homeRoutes,

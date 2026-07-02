@@ -1,4 +1,4 @@
-import dashboardRoutes from '@/modules/admin/submodules/dashboard/router';
+import dashboardRoutes from '@/modules/admin/dashboard/router';
 
 const routes = [
     ...dashboardRoutes,

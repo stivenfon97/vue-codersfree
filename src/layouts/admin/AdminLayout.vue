@@ -3,16 +3,21 @@ import { RouterView } from 'vue-router';
 
 import AdminNav from './components/AdminNav.vue';
 import AdminAside from './components/AdminAside.vue';
+import { ref } from 'vue';
+
+
+const openSidebar = ref(false);
+
 </script>
 
 <template>
 
-    <AdminNav />
+    <AdminNav v-model="openSidebar" />
 
-    <AdminAside />
+    <AdminAside v-model="openSidebar" />
 
     <div class="p-4 sm:ml-64 mt-14">
-        <div class="p-4 border-1 border-default border-dashed rounded-base">
+        <div class="p-4 border border-default border-dashed rounded-base">
 
             <RouterView />
 

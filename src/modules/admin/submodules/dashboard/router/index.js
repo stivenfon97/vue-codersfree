@@ -1,7 +1,7 @@
 const routes = [
     {
         path: 'dashboard',
-        name: 'Dashboard',
+        name: 'admin.dashboard',
         component: () => import('@/modules/admin/submodules/dashboard/views/Dashboard.vue')
     }
 ];

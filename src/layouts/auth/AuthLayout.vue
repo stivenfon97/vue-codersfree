@@ -1,5 +1,6 @@
 <script setup>
 
+import AppLogo from '@/modules/shared/components/AppLogo.vue';
 import { RouterView } from 'vue-router'
 
 </script>
@@ -13,6 +14,10 @@ import { RouterView } from 'vue-router'
                     alt="logo">
                 Flowbite
             </a>
+                     <!-- Logo -->
+         <RouterLink to="/" class="mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+            <AppLogo /> 
+         </RouterLink>
             <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <RouterView />

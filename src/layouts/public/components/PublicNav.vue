@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import PublicNavLink from './PublicNavLink.vue';
+import { RouterLink } from 'vue-router';
+import AppLogo from '@/modules/shared/components/AppLogo.vue';
 
 const openMenu = ref(false);
 </script>
@@ -9,10 +11,9 @@ const openMenu = ref(false);
    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
       <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
          <!-- Logo -->
-         <a href="https://flowbite.com/" class="flex items-center space-x-3">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-7" alt="Flowbite Logo" />
-            <span class="text-xl text-gray-900 font-semibold whitespace-nowrap">Flowbite</span>
-         </a>
+         <RouterLink to="/">
+            <AppLogo />
+         </RouterLink>
 
          <!-- Desktop nav links -->
          <ul class="hidden md:flex items-center space-x-8 font-medium">

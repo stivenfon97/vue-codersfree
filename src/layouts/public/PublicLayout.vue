@@ -9,7 +9,7 @@ import PublicFooter from './components/PublicFooter.vue';
 
    <PublicNav></PublicNav>
 
-   <div class="max-w-screen-xl mx-auto p-4 pt-20">
+   <div class="max-w-7xl mx-auto p-4 pt-20">
       <RouterView></RouterView>
    </div>
 

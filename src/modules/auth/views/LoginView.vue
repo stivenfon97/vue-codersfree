@@ -2,6 +2,7 @@
 import FormInput from '@/modules/shared/components/FormInput.vue';
 import FormLabel from '@/modules/shared/components/FormLabel.vue';
 import MyButton from '@/modules/shared/components/MyButton.vue';
+import TextLink from '@/modules/shared/components/TextLink.vue';
 
 
 </script>
@@ -30,13 +31,12 @@ import MyButton from '@/modules/shared/components/MyButton.vue';
                <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
             </div>
          </div>
-         <a href="#" class="text-sm font-medium text-green-600 hover:underline dark:text-green-500">Forgot
-            password?</a>
+         <TextLink href="#">Forgot password?</TextLink>
       </div>
       <MyButton type="submit" color="success" >Sign in</MyButton>
       <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-         Don’t have an account yet? <a href="#"
-            class="font-medium text-green-600 hover:underline dark:text-green-500">Sign up</a>
+         Don’t have an account yet?
+         <TextLink href="#">Sign up</TextLink>
       </p>
    </form>
 </template>

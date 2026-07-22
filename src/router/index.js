@@ -30,9 +30,8 @@ const router = createRouter({
       children: adminRoutes,
     }
   ],
-})
+});
 
-console.log(authGuard);
 router.beforeEach(authGuard);
 
 export default router

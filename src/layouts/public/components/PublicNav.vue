@@ -6,6 +6,10 @@ import AppLogo from '@/modules/shared/components/AppLogo.vue';
 import DropdownMenu from '@/modules/shared/components/DropdownMenu.vue';
 import DropdownItem from '@/modules/shared/components/DropdownItem.vue';
 
+import { useAuthStore } from '@/modules/auth/stores/authStore.js';
+
+const authStore = useAuthStore();
+
 const openMenu = ref(false);
 </script>
 
@@ -29,44 +33,29 @@ const openMenu = ref(false);
                         alt="user photo">
                   </button>
                </template>
-               <DropdownItem :to="{name: 'admin.dashboard'}">
-                  Admin
-               </DropdownItem>
-               <DropdownItem :to="{name: 'login'}">
-                  Iniciar sesión
-               </DropdownItem>
-               <DropdownItem :to="{name: 'register'}">
-                  Registrarse
-               </DropdownItem>
-            </DropdownMenu>
 
-            <!-- Dropdown menu -->
-            <!-- <div class="z-50 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44"
-               id="user-dropdown">
-               <div class="px-4 py-3 text-sm border-b border-default">
-                  <span class="block text-heading font-medium">Joseph McFall</span>
-                  <span class="block text-body truncate">name@flowbite.com</span>
-               </div>
-               <ul class="p-2 text-sm text-body font-medium" aria-labelledby="user-menu-button">
-                  <li>
-                     <a href="#"
-                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Dashboard</a>
-                  </li>
-                  <li>
-                     <a href="#"
-                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Settings</a>
-                  </li>
-                  <li>
-                     <a href="#"
-                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Earnings</a>
-                  </li>
-                  <li>
-                     <a href="#"
-                        class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Sign
-                        out</a>
-                  </li>
-               </ul>
-            </div> -->
+               <template v-if="authStore.isAuthenticated">
+                  <DropdownItem :to="{name: 'admin.dashboard'}">
+                     Admin
+                  </DropdownItem>
+                  <button
+                     @click="authStore.logout()"
+                     class="block text-left w-full px-4 py-2 leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                  >
+                     Logout
+                  </button>
+               </template>
+               <template v-else>
+                  <DropdownItem :to="{name: 'login'}">
+                     Iniciar sesión
+                  </DropdownItem>
+                  <DropdownItem :to="{name: 'register'}">
+                     Registrarse
+                  </DropdownItem>
+               </template>
+
+
+            </DropdownMenu>
             
             <button 
                @click="openMenu = !openMenu"

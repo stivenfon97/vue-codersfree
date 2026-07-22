@@ -17,7 +17,7 @@
 
 <template>
     <button
-        class =" w-full text-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer"
+        class =" w-full text-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer disabled:opacity-50"
         :class="buttonClasses"
     >
         <slot></slot>

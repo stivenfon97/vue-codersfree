@@ -18,11 +18,14 @@ const credentials = reactive({
 
 const errors = ref([]);
 
+const isLoading = ref(false);
+
 async function handleLogin() {
 
    errors.value = [];
 
    try {
+      isLoading.value = true;
       await authStore.login(credentials);
       router.push('/');
    } catch (error) {
@@ -37,7 +40,8 @@ async function handleLogin() {
       }
 
       console.log(errors.value);
-
+   } finally {
+      isLoading.value = false;
    }
 
 };
@@ -65,11 +69,11 @@ async function handleLogin() {
    <form class="space-y-4 md:space-y-6" @submit.prevent="handleLogin">
       <div>
          <FormLabel for="email">Your email</FormLabel>
-         <FormInput type="email" name="email" id="email" placeholder="name@company.com" />
+         <FormInput v-model="credentials.email" type="email" name="email" id="email" placeholder="name@company.com" />
       </div>
       <div>
          <FormLabel for="password">Password</FormLabel>
-         <FormInput type="password" name="password" id="password" placeholder="••••••••" />
+         <FormInput v-model="credentials.password" type="password" name="password" id="password" placeholder="••••••••" />
       </div>
       <div class="flex items-center justify-between">
          <div class="flex items-start">
@@ -83,7 +87,7 @@ async function handleLogin() {
          </div>
          <TextLink to="#">Forgot password?</TextLink>
       </div>
-      <MyButton type="submit" color="success">Sign in</MyButton>
+      <MyButton type="submit" color="success" :disabled="isLoading">Sign in</MyButton>
       <p class="text-sm font-light text-gray-500 dark:text-gray-400">
          Don’t have an account yet?
          <TextLink to="#">Sign up</TextLink>
